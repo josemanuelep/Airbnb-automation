@@ -1,0 +1,24 @@
+{
+  "name": "ca-automation",
+  "version": "1.0.0",
+  "description": "Test dev",
+  "main": "RunnerTags.js",
+  "scripts": {
+    "test": "gradle test"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemanuelep/Airbnb-automation-test.git"
+  },
+  "author": "Jose Manuel Echeverri Palacio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josemanuelep/Airbnb-automation-test/issues"
+  },
+  "homepage": "https://github.com/josemanuelep/Airbnb-automation-test#readme"
+}
