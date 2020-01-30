@@ -6,7 +6,11 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = "src/test/resources/features/",
+@CucumberOptions(
+        plugin = {"pretty", "summary"},
+        monochrome=true,
+        strict = true,
+        features = "src/test/resources/features/",
         tags = "@Tag1",
         glue = {"co.com.choucair.certification.airbnb.stepsdefinitions", "co.com.choucair.certification.airbnb.util"},
         snippets = SnippetType.CAMELCASE)
