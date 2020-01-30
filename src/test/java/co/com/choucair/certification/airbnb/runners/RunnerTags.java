@@ -7,11 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        plugin = {"pretty", "summary"},
+        plugin = {"pretty"},
         monochrome=true,
-        strict = true,
         features = "src/test/resources/features/",
-        tags = "@Tag1",
+        tags = "@Regresion",
         glue = {"co.com.choucair.certification.airbnb.stepsdefinitions", "co.com.choucair.certification.airbnb.util"},
         snippets = SnippetType.CAMELCASE)
 public class RunnerTags {
