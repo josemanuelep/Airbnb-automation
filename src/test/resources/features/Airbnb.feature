@@ -17,16 +17,20 @@
         | jozelg9@gmail.com | ENVYpc98 |
       Then He should see his own profile image from Google
 
-    Scenario Outline: Searching housing
-      Given search for <city>
+    Scenario: Searching housing
+      Given search for city
+        | city     |
+        | Medellín |
+        | Pereira  |
       When he add some filters
         | since      | until      | adultls | boys | babies | work | type                  | immediately |
         | 31/01/2020 | 20/02/2020 | 2       | 2    | 4      | no   | Alojamiento entero    | yes         |
         | 5/05/2020  | 10/02/2020 | 2       | 0    | 0      | yes  | Habitación compartida | no          |
-      And he add the cheapest to favorites with the name <favorite>
+      And he add the cheapest to favorites with the name
+        | favorite           |
+        | Places in Colombia |
+        | Rest of world      |
       Then he should see a fill red heart
-      Examples:
-        | city     | favorite           |
-        | Medellín | Places in Colombia |
-        | Pereira  | Rest of world      |
+
+
 
