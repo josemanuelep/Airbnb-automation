@@ -35,7 +35,8 @@ public class Login implements Task {
                 ChangeWindow.nextTab(this.url),
                 Enter.theValue(users.get(INDEX_0).getUser()).into(EMAIL_GOOGLE),
                 Click.on(BTN_NEXT_GOOGLE),
-                Enter.theValue(users.get(INDEX_0).getPassword()).into(PASSWORD_GOOGLE)
+                Enter.theValue(users.get(INDEX_0).getPassword()).into(PASSWORD_GOOGLE),
+                Click.on(BTN_NEXT_GOOGLE_FINISH)
         );
     }
 }
