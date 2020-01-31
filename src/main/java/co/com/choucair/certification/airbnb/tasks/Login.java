@@ -17,6 +17,7 @@ import static co.com.choucair.certification.airbnb.userinterface.LoginPage.*;
 import static co.com.choucair.certification.airbnb.util.Constants.INDEX_0;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static org.apache.commons.io.FileUtils.waitFor;
 
 public class Login implements Task {
 
@@ -34,16 +35,16 @@ public class Login implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        CustomLogger.printMessage("ESTAMOS PROBANDO LOGGERS");
         actor.attemptsTo(Click.on(LOGIN_BUTTON),
                 Click.on(LOGIN_BUTTON_GOOGLE),
                 ChangeWindow.nextTab(this.url),
                 Enter.theValue(users.get(INDEX_0).getUser()).into(EMAIL_GOOGLE),
                 Click.on(BTN_NEXT_GOOGLE),
+                WaitUntil.the(PASSWORD_GOOGLE, isClickable()).forNoMoreThan(10).seconds(),
                 Enter.theValue(users.get(INDEX_0).getPassword()).into(PASSWORD_GOOGLE),
-                WaitUntil.the(BTN_NEXT_GOOGLE_FINISH, isClickable()).forNoMoreThan(5).seconds(),
-                Click.on(BTN_NEXT_GOOGLE_FINISH),
-                ChangeToDefault.window()
+                WaitUntil.the(BTN_NEXT_GOOGLE_FINISH, isClickable()).forNoMoreThan(10).seconds(),
+                Click.on(BTN_NEXT_GOOGLE_FINISH)
+//                ChangeToDefault.window()
         );
     }
 }

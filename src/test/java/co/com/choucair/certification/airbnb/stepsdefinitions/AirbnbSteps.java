@@ -1,10 +1,9 @@
 package co.com.choucair.certification.airbnb.stepsdefinitions;
 
 import co.com.choucair.certification.airbnb.model.User;
+import co.com.choucair.certification.airbnb.questions.IsLogg;
 import co.com.choucair.certification.airbnb.tasks.Login;
 import co.com.choucair.certification.airbnb.tasks.OpenThe;
-import com.diogonunes.jcdp.color.ColoredPrinter;
-import com.diogonunes.jcdp.color.api.Ansi;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,6 +11,7 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -28,12 +28,12 @@ public class AirbnbSteps {
 
     @When("^He decide enter with Google account using the credencials$")
     public void heDecideEnterWithGoogleAccountUsingTheCredencials(List<User> users) {
-        theActorCalled("Jose").attemptsTo(Login.withGoogleAccount(users,url));
+        theActorCalled("Jose").attemptsTo(Login.withGoogleAccount(users, url));
     }
 
-    @Then("^He should see his own profile image from Google$")
-    public void heShouldSeeHisOwnProfileImageFromGoogle() {
-
+    @Then("^He should see his own profile image from Google with alt atributte \"([^\"]*)\"$")
+    public void heShouldSeeHisOwnProfileImageFromGoogleWithAltAtributte(String alt) {
+        theActorInTheSpotlight().should(seeThat(IsLogg.in(alt)));
     }
 
     @Given("^search for city$")

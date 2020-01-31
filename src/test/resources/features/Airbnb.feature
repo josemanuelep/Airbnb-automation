@@ -15,7 +15,7 @@
       When He decide enter with Google account using the credencials
         | user              | password |
         | jozelg9@gmail.com | ENVYpc98 |
-      Then He should see his own profile image from Google
+      Then He should see his own profile image from Google with alt atributte "Cuenta de José Manuel"
 
     Scenario: Searching housing
       Given search for city
