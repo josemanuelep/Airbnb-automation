@@ -6,28 +6,44 @@ repositories {
 }
 buildscript {
     repositories {
+        mavenLocal()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
+
         classpath("net.serenity-bdd:serenity-gradle-plugin:1.9.45")
+        classpath("org.gradle:test-retry-gradle-plugin:1.1.0")
     }
 }
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: "org.gradle.test-retry"
 apply plugin: 'net.serenity-bdd.aggregator'
+
 dependencies {
-    testImplementation'net.serenity-bdd:serenity-core:1.9.9'
+    testImplementation 'net.serenity-bdd:serenity-core:1.9.9'
     testImplementation 'net.serenity-bdd:serenity-junit:1.1.1'
     testImplementation('junit:junit:4.12')
     testImplementation('org.assertj:assertj-core:1.7.0')
     testImplementation('org.slf4j:slf4j-simple:1.7.7')
     testImplementation(group: 'com.diogonunes', name: 'JCDP', version: '4.0.0')
     implementation(group: 'com.diogonunes', name: 'JCDP', version: '4.0.0')
+    implementation('org.slf4j:slf4j-simple:1.7.7')
     implementation 'net.serenity-bdd:serenity-core:1.9.9'
     implementation 'net.serenity-bdd:serenity-junit:1.9.9'
     implementation 'net.serenity-bdd:serenity-cucumber:1.9.5'
-    implementation (group:'net.serenity-bdd', name:'serenity-screenplay-webdriver', version:'2.0.80')
-    implementation (group: 'edu.princeton.cs', name: 'algs4', version: '1.0.2')
+    implementation(group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: '2.0.80')
+    implementation(group: 'edu.princeton.cs', name: 'algs4', version: '1.0.2')
 
+}
+test {
+    retry {
+        maxRetries = 5
+        maxFailures = 20
+        failOnPassedAfterRetry = true
+    }
 }
 gradle.startParameter.continueOnFailure = true

@@ -7,12 +7,11 @@ import static com.diogonunes.jcdp.color.api.Ansi.FColor;
 
 public class CustomLogger {
 
-    private static ColoredPrinter cp = new ColoredPrinter.Builder(0, false)
-            .foreground(FColor.WHITE).background(Ansi.BColor.BLUE)   //setting format
-            .build();
+    private static ColoredPrinter cp = new ColoredPrinter.Builder(0, false).build();
 
     public static void printMessage(String message) {
-        cp.println(message);
+        cp.println("CUSTOM LOGGERS",Ansi.Attribute.DARK, FColor.GREEN, Ansi.BColor.BLACK);
+        cp.println(message, Ansi.Attribute.BOLD, FColor.YELLOW, Ansi.BColor.RED);
     }
 
 }

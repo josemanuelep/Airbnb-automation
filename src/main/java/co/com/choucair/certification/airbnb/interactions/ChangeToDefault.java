@@ -1,5 +1,6 @@
 package co.com.choucair.certification.airbnb.interactions;
 
+import co.com.choucair.certification.airbnb.util.CustomLogger;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 
@@ -11,6 +12,7 @@ public class ChangeToDefault implements Interaction {
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
+
         getDriver().switchTo().window(getDriver().getWindowHandle());
     }
 }
