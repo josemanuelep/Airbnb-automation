@@ -10,4 +10,5 @@ public class LoginPage {
     public static final Target BTN_NEXT_GOOGLE = Target.the("Button to show login form").located(By.xpath("(//span[@class='RveJvd snByac'])[1]"));
     public static final Target BTN_NEXT_GOOGLE_FINISH = Target.the("Button to show login form").located(By.xpath("(//span[@class='RveJvd snByac'])[1]"));
     public static final Target PASSWORD_GOOGLE = Target.the("Button to show login form").located(By.xpath("//input[@type='password']"));
+    public static final Target IMG_GOOGLE = Target.the("Button to show login form").located(By.xpath("//IMG[@alt='Cuenta de José Manuel']"));
 }
