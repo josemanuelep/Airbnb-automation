@@ -21,6 +21,8 @@ dependencies {
     testImplementation('junit:junit:4.12')
     testImplementation('org.assertj:assertj-core:1.7.0')
     testImplementation('org.slf4j:slf4j-simple:1.7.7')
+    testImplementation(group: 'com.diogonunes', name: 'JCDP', version: '4.0.0')
+    implementation(group: 'com.diogonunes', name: 'JCDP', version: '4.0.0')
     implementation 'net.serenity-bdd:serenity-core:1.9.9'
     implementation 'net.serenity-bdd:serenity-junit:1.9.9'
     implementation 'net.serenity-bdd:serenity-cucumber:1.9.5'

@@ -1,5 +1,6 @@
 package co.com.choucair.certification.airbnb.tasks;
 
+import co.com.choucair.certification.airbnb.interactions.ChangeToDefault;
 import co.com.choucair.certification.airbnb.interactions.ChangeWindow;
 import co.com.choucair.certification.airbnb.model.User;
 import net.serenitybdd.screenplay.Actor;
@@ -36,7 +37,8 @@ public class Login implements Task {
                 Enter.theValue(users.get(INDEX_0).getUser()).into(EMAIL_GOOGLE),
                 Click.on(BTN_NEXT_GOOGLE),
                 Enter.theValue(users.get(INDEX_0).getPassword()).into(PASSWORD_GOOGLE),
-                Click.on(BTN_NEXT_GOOGLE_FINISH)
+                Click.on(BTN_NEXT_GOOGLE_FINISH),
+                ChangeToDefault.window()
         );
     }
 }

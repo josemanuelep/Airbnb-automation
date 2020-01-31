@@ -4,15 +4,12 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class ChangeWindow implements Interaction {
     private String urlTochange;
-    // Create a Logger
-    private static Logger LOGGER = Logger.getLogger("InfoLogging");
+
 
     public ChangeWindow(String urlTochange) {
         this.urlTochange = urlTochange;
@@ -22,10 +19,14 @@ public class ChangeWindow implements Interaction {
         return new ChangeWindow(urlTochange);
     }
 
+    public static void toDefaultWindow(){
+
+        getDriver().switchTo().window(getDriver().getWindowHandle());
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         Set<String> listWindows = getDriver().getWindowHandles();
-        LOGGER.log(Level.SEVERE, "Changing window");
         for (String handle : listWindows) {
             getDriver().switchTo().window(handle);
             if (getDriver().getCurrentUrl().equals(urlTochange)) {
