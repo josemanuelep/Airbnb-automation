@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/",
+        plugin = {"pretty"},
+        features = "src/test/resources/features/Airbnb.feature",
         tags = "@Regresion",
         glue = {"co.com.choucair.certification.airbnb.stepsdefinitions", "co.com.choucair.certification.airbnb.util"},
         snippets = SnippetType.CAMELCASE)
