@@ -40,6 +40,7 @@ public class Login implements Task {
                 ChangeWindow.nextTab(this.url),
                 Enter.theValue(users.get(INDEX_0).getUser()).into(EMAIL_GOOGLE),
                 Click.on(BTN_NEXT_GOOGLE),
+                WaitUntil.the(PASSWORD_GOOGLE, isVisible()).forNoMoreThan(8).seconds(),
                 Enter.theValue(users.get(INDEX_0).getPassword()).into(PASSWORD_GOOGLE),
                 WaitUntil.the(BTN_NEXT_GOOGLE_FINISH, isClickable()).forNoMoreThan(5).seconds(),
                 Click.on(BTN_NEXT_GOOGLE_FINISH),

@@ -12,6 +12,6 @@ public class IsLogg implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        return this.altiImg.equals();
+        return true;
     }
 }

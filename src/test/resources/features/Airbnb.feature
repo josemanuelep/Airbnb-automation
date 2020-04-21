@@ -32,12 +32,5 @@
         | Rest of world      |
       Then he should see a fill red heart
 
-    Scenario Outline: Search Keyword using data from file
-      When I search for "<searchKey>"
-      Then I get at least <number> results
-      Then it should have "<searchResult>" in search results
-
-      Examples:{'datafile':'src/test/resources/Lugares_Tur_sticos_En_El_Municipio_De_Anzo_tegui_Y_Sus_Respectivas_Veredas.csv'}
-
 
 
