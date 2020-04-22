@@ -32,5 +32,13 @@
         | Rest of world      |
       Then he should see a fill red heart
 
+    @manual
+    Scenario: Invoice details should be downloadable as a PDF file
+    The layout and content of the PDF file should be verified
+
+      Given Clive has made a purchase
+      When he reviews his past orders
+      Then he should be able to download his invoice as an PDF file
+
 
 
